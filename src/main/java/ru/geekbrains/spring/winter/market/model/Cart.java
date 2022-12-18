@@ -2,7 +2,6 @@ package ru.geekbrains.spring.winter.market.model;
 
 import lombok.Data;
 import ru.geekbrains.spring.winter.market.entities.Product;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
