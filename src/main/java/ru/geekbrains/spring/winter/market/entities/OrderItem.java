@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @Table(name = "order_items")
@@ -44,6 +45,6 @@ public class OrderItem {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public OrderItem(Long product, Order order, int quantity, int pricePerProduct, int price) {
+    public OrderItem(Optional<Product> product, Product product1, Order order, int quantity, int pricePerProduct, int price) {
     }
 }

@@ -18,4 +18,5 @@ public class CartItem {
         quantity += delta;
         price = pricePerProduct * quantity;
     }
+
 }
