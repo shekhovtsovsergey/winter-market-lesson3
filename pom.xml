@@ -110,7 +110,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>2.5.0</version>
 				<executions>
 					<execution>
 						<id>xjc</id>
@@ -123,9 +123,6 @@
 					<sources>
 						<source>${project.basedir}/src/main/resources/products.xsd</source>
 					</sources>
-					<!--					<packageName>soap</packageName>-->
-					<!--					<outputDirectory>${project.basedir}/src/main/java/com/flamexander/spring/ws/soap</outputDirectory>-->
-					<!--					<clearOutputDir>false</clearOutputDir>-->
 				</configuration>
 			</plugin>
 

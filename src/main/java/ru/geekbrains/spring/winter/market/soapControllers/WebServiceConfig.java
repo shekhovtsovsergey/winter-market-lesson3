@@ -5,8 +5,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
@@ -32,7 +30,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ProductsPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://www.flamexander.com/spring/ws/products");
+        wsdl11Definition.setTargetNamespace("http://www.flamexander.com/spring/ws/Products");
         wsdl11Definition.setSchema(studentsSchema);
         return wsdl11Definition;
     }
@@ -42,15 +40,4 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public XsdSchema productsSchema() {
         return new SimpleXsdSchema(new ClassPathResource("products.xsd"));
     }
-
-
-
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring()
-                .antMatchers(HttpMethod.GET, "/api/products")
-                .antMatchers(HttpMethod.POST, "/ws");
-
-    }
-
 }

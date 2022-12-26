@@ -2,6 +2,7 @@ package ru.geekbrains.spring.winter.market.soapControllers;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.spring.winter.market.soap.Product;
 
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProductSoapService {
     private final ProductSoapRepository productSoapRepository;
 
@@ -18,11 +20,13 @@ public class ProductSoapService {
         Product s = new Product();
         s.setId(se.getId());
         s.setTitle(se.getTitle());
-        s.setCost(se.getCost());
+        s.setPrice(se.getPrice());
         return s;
     };
 
     public List<Product> getAllProducts() {
+        log.info(String.valueOf(productSoapRepository.findAll()));
+
         return productSoapRepository.findAll().stream().map(functionEntityToSoap).collect(Collectors.toList());
     }
 
